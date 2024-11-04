@@ -8,13 +8,24 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.Button
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-//private const val ARG_PARAM1 = "param1"
-
-
 class TopicList : Fragment() {
-    private var topics: List<TopicModel> = emptyList()
+    private val topics = arrayListOf<TopicModel>(
+        TopicModel("Math", "Basic addition problems", listOf<QuestionModel>(
+            QuestionModel("2 + 3 = ?", listOf<String>("2", "4", "5", "10"), 2),
+            QuestionModel("20 + 22 = ?", listOf<String>("52", "42", "62", "32"), 1),
+            QuestionModel("321 + 120 = ?", listOf<String>("441", "449", "451", "472"), 0)
+        )),
+        TopicModel("Physics", "Quiz on forces", listOf<QuestionModel>(
+            QuestionModel("What force caused Newton's apple to fall down?", listOf<String>("Centripetal Force", "Gravitational Force", "Centrifugal Force", "Frictional Force"), 1),
+            QuestionModel("Which is the weakest of the four fundamental forces?", listOf<String>("Gravitational Force", "Electromagnetic Force", "Weak Nuclear Force", "Strong Nuclear Force"), 0),
+            QuestionModel("What is the SI unit of force?", listOf<String>("m", "J", "K", "N"), 3)
+        )),
+        TopicModel("Marvel Super Heroes", "Testing your super hero knowledge", listOf<QuestionModel>(
+            QuestionModel("What type of doctor is Doctor Strange?", listOf<String>("Dentist", "Neurosurgeon", "Ophthalmologist", "Urologist"), 1),
+            QuestionModel("Where was Captain America born?", listOf<String>("Brooklyn, NY", "Seattle, WA", "Boston, MA", "Detroit, MI"), 0),
+            QuestionModel("Who was able to pick up Thor's hammer in Endgame?", listOf<String>("Iron Man", "Spider-Man", "Captain America", "Black Widow"), 2)
+        ))
+    )
     private var topicsArray = topics.toTypedArray()
 
     override fun onCreateView(
@@ -29,7 +40,7 @@ class TopicList : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val topicListView = view.findViewById<LinearLayout>(R.id.topic_list_view)
-
+//        val display = view.findViewById<TextView>(R.id.display)
         for(topic in topicsArray) {
             val quizButton = Button(context).apply {
                 text = topic.topicName
@@ -39,14 +50,6 @@ class TopicList : Fragment() {
                 }
             }
             topicListView.addView(quizButton)
-        }
-    }
-
-    companion object {
-        fun newInstance(topics: List<TopicModel>): TopicList {
-            val topicListFragment = TopicList()
-            topicListFragment.topics = topics
-            return topicListFragment
         }
     }
 }

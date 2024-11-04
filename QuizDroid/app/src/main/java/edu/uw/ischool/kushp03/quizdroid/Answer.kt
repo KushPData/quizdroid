@@ -35,13 +35,15 @@ class Answer : Fragment() {
         if (questionNumber < totalQuestions - 1) {
             nextOrFinishButton.text = "Next"
             nextOrFinishButton.setOnClickListener {
-                val questionFragment = Question.newInstance(topic, questionNumber + 1)
+                val questionFragment = Question.newInstance(topic, questionNumber + 1, correctAnswers)
                 requireActivity().supportFragmentManager.beginTransaction().replace(R.id.fragment_container, questionFragment).addToBackStack(null).commit()
             }
         } else {
             nextOrFinishButton.text = "Finish"
             nextOrFinishButton.setOnClickListener {
-                requireActivity().supportFragmentManager.popBackStack()
+//                requireActivity().supportFragmentManager.popBackStack()
+                val topicListFragment = TopicList()
+                requireActivity().supportFragmentManager.beginTransaction().replace(R.id.fragment_container, topicListFragment).commit()
             }
         }
     }

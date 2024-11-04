@@ -8,9 +8,6 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-
 class TopicOverview : Fragment() {
     private lateinit var topic: TopicModel
 
@@ -29,7 +26,7 @@ class TopicOverview : Fragment() {
         view.findViewById<TextView>(R.id.description).text = topic.topicDescription
         view.findViewById<TextView>(R.id.number_of_questions).text = "Total Number of Questions: ${topic.questions.size}"
         view.findViewById<Button>(R.id.begin_button).setOnClickListener {
-            val questionFragment = Question.newInstance(topic, 0)
+            val questionFragment = Question.newInstance(topic, 0, 0)
             requireActivity().supportFragmentManager.beginTransaction().replace(R.id.fragment_container, questionFragment).addToBackStack(null).commit()
         }
     }

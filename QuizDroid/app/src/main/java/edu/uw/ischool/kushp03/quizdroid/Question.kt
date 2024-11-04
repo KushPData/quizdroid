@@ -56,10 +56,11 @@ class Question : Fragment() {
     }
 
     companion object {
-        fun newInstance(topic: TopicModel, questionNumber: Int): Question {
+        fun newInstance(topic: TopicModel, questionNumber: Int, correctAnswers: Int): Question {
             val questionFragment = Question()
             questionFragment.topic = topic
             questionFragment.questionNumber = questionNumber
+            questionFragment.correctAnswers = correctAnswers
             return questionFragment
         }
     }
