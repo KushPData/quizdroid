@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <application
+        android:name=".QuizApp"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -21,6 +22,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
     </application>
+
+<!--    &lt;!&ndash;Just using ic_launcher for simplicity&ndash;&gt;-->
+<!--    <application-->
+<!--        android:name=".QuizApp"-->
+<!--        android:icon="@mipmap/ic_launcher">-->
+<!--    </application>-->
 
 </manifest>
