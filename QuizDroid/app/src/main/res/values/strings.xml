@@ -3,6 +3,12 @@
     <string name="begin">Begin</string>
     <string name="submit">Submit</string>
     <string name="next">Next</string>
+    <string name="newURL">New URL</string>
+    <string name="newInterval">New Interval (In Minutes)</string>
+    <string name="updatePreferences">Update Preferences</string>
+    <string name="currentURL">Current URL</string>
+    <string name="currentInterval">Current Interval</string>
+    <string name="viewPreferences">View Preferences</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
