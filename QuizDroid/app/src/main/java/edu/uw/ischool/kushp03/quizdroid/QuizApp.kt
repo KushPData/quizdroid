@@ -1,5 +1,6 @@
 package edu.uw.ischool.kushp03.quizdroid
 import android.app.Application
+import android.content.Context
 import android.util.Log
 
 class QuizApp : Application() {
@@ -11,7 +12,7 @@ class QuizApp : Application() {
     }
 
     fun getTopicRepository() : TopicRepository {
-        topicRepository = TopicRepositoryImplementation()
+        topicRepository = TopicRepositoryImplementation(this)
         return topicRepository
     }
 }
