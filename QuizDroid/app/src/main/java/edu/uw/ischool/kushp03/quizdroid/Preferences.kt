@@ -1,10 +1,11 @@
 package edu.uw.ischool.kushp03.quizdroid
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
-import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -14,8 +15,7 @@ class Preferences : AppCompatActivity() {
     private lateinit var urlEditText: EditText
     private lateinit var intervalEditText: EditText
     private lateinit var updateButton: Button
-    private lateinit var urlTextView: TextView
-    private lateinit var intervalTextView: TextView
+    private lateinit var backButton: Button
 
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,8 +31,7 @@ class Preferences : AppCompatActivity() {
         urlEditText = findViewById(R.id.newUrl)
         intervalEditText = findViewById(R.id.newInterval)
         updateButton = findViewById(R.id.update)
-        urlTextView = findViewById(R.id.currentUrl)
-        intervalTextView = findViewById(R.id.currentInterval)
+        backButton = findViewById(R.id.backButton)
 
         val sharedPreference = getSharedPreferences("userPreferences", MODE_PRIVATE)
         val editor = sharedPreference.edit()
@@ -47,18 +46,13 @@ class Preferences : AppCompatActivity() {
                 apply()
             }
 
-            val updatedUrl = sharedPreference.getString("newUrl", "data/questions.json")
-            val updatedInterval = sharedPreference.getInt("newInterval", 30)
+            backButton.setOnClickListener {
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+            }
 
-            urlTextView.text = "URL to use: $updatedUrl"
-            intervalTextView.text = "Interval to use: $updatedInterval"
+            Toast.makeText(this, "Preferences Updated", Toast.LENGTH_SHORT).show()
         }
-
-        val updatedUrl = sharedPreference.getString("newUrl", "data/questions.json")
-        val updatedInterval = sharedPreference.getInt("newInterval", 30)
-
-        urlTextView.text = "URL to use: $updatedUrl"
-        intervalTextView.text = "Interval to use: $updatedInterval"
 
     }
 }

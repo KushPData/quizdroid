@@ -48,6 +48,16 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+
+        topicRepository = (application as QuizApp).getTopicRepository()
+
+        downloadData()
+
+        getTopicListFragment()
+    }
+
     private fun deviceIsConnected(): Boolean {
         val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         val network = connectivityManager.activeNetwork ?: return false

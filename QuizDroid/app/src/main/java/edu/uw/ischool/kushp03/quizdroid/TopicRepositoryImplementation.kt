@@ -95,7 +95,6 @@ class TopicRepositoryImplementation(private val context: Context) : TopicReposit
             for(i in 0 until jsonArray.length()) {
                 val topicObject = jsonArray.getJSONObject(i)
                 val title = topicObject.getString("title")
-                Toast.makeText(context, "Title: $title", Toast.LENGTH_SHORT).show()
                 val desc = topicObject.getString("desc")
                 val questionsArray = topicObject.getJSONArray("questions")
 

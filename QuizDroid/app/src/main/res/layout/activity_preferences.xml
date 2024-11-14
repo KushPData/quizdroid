@@ -12,64 +12,46 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="76dp"
-        android:layout_marginBottom="245dp"
         android:autofillHints=""
         android:ems="10"
-        android:inputType="text"
         android:hint="@string/newURL"
+        android:inputType="text"
         android:text=""
-        app:layout_constraintBottom_toTopOf="@+id/currentUrl"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.649"
         tools:ignore="TextFields" />
 
     <EditText
         android:id="@+id/newInterval"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="162dp"
+        android:layout_marginTop="41dp"
         android:autofillHints=""
         android:ems="10"
-        android:inputType="text"
         android:hint="@string/newInterval"
+        android:inputType="text"
         android:text=""
         app:layout_constraintStart_toStartOf="@+id/newUrl"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/newUrl" />
 
     <Button
         android:id="@+id/update"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="22dp"
+        android:layout_marginEnd="17dp"
         android:text="@string/updatePreferences"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/newInterval"
         app:layout_constraintTop_toBottomOf="@+id/newInterval" />
 
-    <TextView
-        android:id="@+id/currentUrl"
+    <Button
+        android:id="@+id/backButton"
         android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:layout_marginBottom="37dp"
-        android:text="@string/currentURL"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/currentInterval"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/newUrl" />
-
-    <TextView
-        android:id="@+id/currentInterval"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:layout_marginBottom="232dp"
-        android:textSize="20sp"
-        android:text="@string/currentInterval"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="270dp"
+        android:text="@string/back"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/currentUrl" />
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
